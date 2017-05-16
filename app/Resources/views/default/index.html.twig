@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<table>
+<head>
+   Enter movie name
+</head>
+    <body>
+<form action="" method="get">
+    <input type="text" name="movie"/>
+    <button type="submit">search</button>
+</form>
+<br/>
+{% if data is defined %}
+    <h2>Result as object</h2>
+<div id="results">
+    {{ data|json_encode(constant('JSON_PRETTY_PRINT')) }}
+</div>
+
+        <h3> Search result</h3>
+    <tr>
+        {%  for key in viewDomain  %}
+                <td> {{ key.title }}</td>
+                <td> {{ key.overview }}</td>
+                <td> {{ key.originalName }}</td>
+                <td> {{ key.releaseDate }}</td>
+    </tr>
+{% endfor %}
+
+{% endif %}
+
+
+</table>
+</body>
+</html>

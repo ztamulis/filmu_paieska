@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    HISTORY
+</head>
+
+{%  for key in resultSets  %}
+<h3>Search: {{ key.name }}</h3>
+<table>
+
+    {%  for movie in key.movieResults  %}
+
+        <tr>
+            <td> {{ movie.title }}</td>
+            <td> {{ movie.overview }}</td>
+            <td> {{ movie.originalName }}</td>
+            <td> {{ movie.releaseDate }}</td>
+
+        </tr>
+        {% endfor %}
+
+</table>
+{% endfor %}
+</html>
